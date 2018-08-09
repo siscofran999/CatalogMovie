@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CatalogMovie</string>
+    <string name="cari_film">Cari Film</string>
+    <string name="cari">Cari</string>
+    <string name="title">title</string>
+    <string name="overview">Overview</string>
+    <string name="date">Date</string>
+</resources>
