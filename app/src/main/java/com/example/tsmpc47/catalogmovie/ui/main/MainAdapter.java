@@ -1,5 +1,7 @@
 package com.example.tsmpc47.catalogmovie.ui.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,6 +12,7 @@ import android.view.ViewGroup;
 import com.example.tsmpc47.catalogmovie.data.model.Result;
 import com.example.tsmpc47.catalogmovie.databinding.ItemMainBinding;
 import com.example.tsmpc47.catalogmovie.ui.base.BaseViewHolder;
+import com.example.tsmpc47.catalogmovie.ui.detail.DetailMovieActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +79,10 @@ public class MainAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         @Override
         public void clickMovieDetailActivity(Result result) {
-            Log.i(TAG, "clickMovieDetailActivity: ");
+            Log.i(TAG, "clickMovieDetailActivity: "+result.getReleaseDate());
+            Context context = mBinding.getRoot().getContext();
+            Intent intent = DetailMovieActivity.gotoDetailMovieActivity(context,result);
+            context.startActivity(intent);
         }
     }
 }

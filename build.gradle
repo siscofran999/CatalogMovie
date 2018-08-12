@@ -44,6 +44,7 @@ ext {
     debugDBVersion = '1.0.3'
     timberVersion = '4.6.0'
     lifecycle = '1.1.1'
+    circleimage= '2.2.0'
 
     //Test dependencies
     junitVersion = '4.12'
