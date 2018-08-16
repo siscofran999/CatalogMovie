@@ -61,10 +61,16 @@ public final class CommonUtils {
     }
 
     public static String cutText(String overview){
-        String text = overview.substring(0, 30);
-        String text2 = overview.substring(31);
-        String titik2 = text2.replace(text2, "...");
-        return text + titik2;
+        String deskripsi;
+        if (overview.length() < 30){
+            deskripsi = overview;
+        }else{
+            String text = overview.substring(0, 30);
+            String text2 = overview.substring(31);
+            String titik2 = text2.replace(text2, "...");
+            deskripsi = text+titik2;
+        }
+        return deskripsi;
     }
 
     public static String converDate(String date){
