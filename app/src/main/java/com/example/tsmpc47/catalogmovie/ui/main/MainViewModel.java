@@ -3,6 +3,7 @@ package com.example.tsmpc47.catalogmovie.ui.main;
 import android.arch.lifecycle.MutableLiveData;
 import android.databinding.ObservableArrayList;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.tsmpc47.catalogmovie.data.DataManager;
 import com.example.tsmpc47.catalogmovie.data.model.MovieResponse;
@@ -32,6 +33,7 @@ public class MainViewModel extends BaseViewModel<MainNavigator> {
     }
 
     public void search(String inputSearh) {
+
         setIsLoading(true);
         getCompositeDisposable().add(getDataManager().getMovieData(inputSearh)
                 .delay(1000, TimeUnit.MILLISECONDS)
@@ -52,6 +54,7 @@ public class MainViewModel extends BaseViewModel<MainNavigator> {
                     public void accept(Throwable throwable) {
                         Log.e(TAG, "accept: "+throwable.getMessage());
                         setIsLoading(false);
+
                     }
                 }));
     }

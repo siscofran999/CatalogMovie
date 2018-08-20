@@ -42,6 +42,7 @@ import java.util.regex.Pattern;
  */
 
 public final class CommonUtils {
+    private static final String TAG = "CommonUtils";
 
     private CommonUtils() {
         // This utility class is not publicly instantiable
@@ -75,18 +76,24 @@ public final class CommonUtils {
 
     public static String converDate(String date){
 
-        DateFormat inputFormatter1 = new SimpleDateFormat("yyyy-MM-dd");
-        Date date1 = null;
-        try {
-            date1 = inputFormatter1.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if (date.equals("")){
+            Log.i(TAG, "converDate: Masuk Sini");
+            return "";
+        }else{
+            Log.i(TAG, "converDate: Masuk Sana : "+date);
+            DateFormat inputFormatter1 = new SimpleDateFormat("yyyy-MM-dd");
+            Date date1 = null;
+            try {
+                date1 = inputFormatter1.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            DateFormat outputFormatter1 = new SimpleDateFormat("EEE, MMM d, yyyy");
+            String output1 = outputFormatter1.format(date1);
+
+            return output1;
         }
-
-        DateFormat outputFormatter1 = new SimpleDateFormat("EEE, MMM d, yyyy");
-        String output1 = outputFormatter1.format(date1);
-
-        return output1;
     }
 
 }

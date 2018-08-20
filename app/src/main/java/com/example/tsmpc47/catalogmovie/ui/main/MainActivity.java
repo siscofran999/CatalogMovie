@@ -84,11 +84,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     public void search() {
         String inputSearh = mActivityMainBinding.search.getText().toString();
         Log.i(TAG, "search: "+inputSearh);
-        if (!inputSearh.equals("")){
+        if (!inputSearh.equals("") && isNetworkConnected()){
             Log.i(TAG, "masuk sini: ");
             mMainViewModel.search(inputSearh);
-        }else{
+        }else if (inputSearh.equals("")){
             Toast.makeText(this, "Maaf, Masih kosong inputannya", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Maaf, harap cek koneksi", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.tsmpc47.catalogmovie.ui.detail;
 
 import android.databinding.ObservableField;
+import android.util.Log;
 
 import com.example.tsmpc47.catalogmovie.BuildConfig;
 import com.example.tsmpc47.catalogmovie.data.DataManager;

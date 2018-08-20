@@ -28,7 +28,7 @@ public class MainItemViewModel {
     public MainItemViewModel(Result result, ItemMainViewListener listener) {
         this.mResult = result;
         this.mListener = listener;
-        Log.i(TAG, "MainItemViewModel: "+result.getTitle());
+        Log.i(TAG, "Date: "+result.getReleaseDate());
 
         this.imageUrl.set(BuildConfig.POSTER+result.getPosterPath());
         this.title.set(result.getTitle());
