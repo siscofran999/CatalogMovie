@@ -16,26 +16,18 @@
 
 package com.example.tsmpc47.catalogmovie.utils;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.provider.Settings;
 import android.util.Log;
 
 import com.example.tsmpc47.catalogmovie.R;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by amitshekhar on 07/07/17.

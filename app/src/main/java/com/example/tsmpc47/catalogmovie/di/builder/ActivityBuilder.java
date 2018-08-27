@@ -2,6 +2,8 @@ package com.example.tsmpc47.catalogmovie.di.builder;
 
 import com.example.tsmpc47.catalogmovie.ui.detail.DetailMovieActivity;
 import com.example.tsmpc47.catalogmovie.ui.detail.DetailMovieActivityModule;
+import com.example.tsmpc47.catalogmovie.ui.home.HomeActivity;
+import com.example.tsmpc47.catalogmovie.ui.home.HomeActivityModule;
 import com.example.tsmpc47.catalogmovie.ui.main.MainActivity;
 import com.example.tsmpc47.catalogmovie.ui.main.MainActivityModule;
 
@@ -16,5 +18,8 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = DetailMovieActivityModule.class)
     abstract DetailMovieActivity bindDetailMovieActivity();
+
+    @ContributesAndroidInjector(modules = HomeActivityModule.class)
+    abstract HomeActivity bindHomeActivity();
 
 }
