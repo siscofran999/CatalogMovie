@@ -33,7 +33,6 @@ public class MainViewModel extends BaseViewModel<MainNavigator> {
     }
 
     public void search(String inputSearh) {
-
         setIsLoading(true);
         getCompositeDisposable().add(getDataManager().getMovieData(inputSearh)
                 .delay(1000, TimeUnit.MILLISECONDS)
@@ -54,7 +53,6 @@ public class MainViewModel extends BaseViewModel<MainNavigator> {
                     public void accept(Throwable throwable) {
                         Log.e(TAG, "accept: "+throwable.getMessage());
                         setIsLoading(false);
-
                     }
                 }));
     }
@@ -70,6 +68,5 @@ public class MainViewModel extends BaseViewModel<MainNavigator> {
     public void addMainItemsToList(List<Result> results) {
         mainItemViewModels.clear();
         mainItemViewModels.addAll(results);
-
     }
 }

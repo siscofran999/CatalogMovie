@@ -19,6 +19,7 @@ package com.example.tsmpc47.catalogmovie.data;
 import android.content.Context;
 
 import com.example.tsmpc47.catalogmovie.data.model.MovieResponse;
+import com.example.tsmpc47.catalogmovie.data.model.NowPlaying;
 import com.example.tsmpc47.catalogmovie.data.remote.ApiHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,4 +58,10 @@ public class AppDataManager implements DataManager {
     public Single<MovieResponse> getMovieData(String query) {
         return mApiHelper.getMovieData(query);
     }
+
+    @Override
+    public Single<NowPlaying> getNowPlayingData() {
+        return mApiHelper.getNowPlayingData();
+    }
+
 }

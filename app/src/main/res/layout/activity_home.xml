@@ -15,8 +15,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragment_controller"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_above="@+id/btm_nav"/>
 
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/btm_nav"

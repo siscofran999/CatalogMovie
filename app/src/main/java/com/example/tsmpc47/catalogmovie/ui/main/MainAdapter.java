@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.tsmpc47.catalogmovie.data.model.Result;
@@ -14,7 +13,6 @@ import com.example.tsmpc47.catalogmovie.databinding.ItemMainBinding;
 import com.example.tsmpc47.catalogmovie.ui.base.BaseViewHolder;
 import com.example.tsmpc47.catalogmovie.ui.detail.DetailMovieActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<BaseViewHolder> {
