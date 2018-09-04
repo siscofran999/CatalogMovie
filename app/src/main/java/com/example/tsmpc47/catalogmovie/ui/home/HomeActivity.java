@@ -1,11 +1,10 @@
 package com.example.tsmpc47.catalogmovie.ui.home;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,10 +19,17 @@ import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingFragment;
 
 import javax.inject.Inject;
 
-public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewModel> implements HomeNavigator {
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
+
+public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewModel> implements HasSupportFragmentInjector {
 
     @Inject
     HomeViewModel mHomeViewModel;
+
+    @Inject
+    DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
 
     ActivityHomeBinding mActivityHomeBinding;
     private static final String TAG = "HomeActivity";
@@ -37,10 +43,10 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
     }
 
     private void setBottomFragment(NowPlayingFragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_controller,fragment,NowPlayingFragment.TAG);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_controller,fragment).commit();
     }
 
-    private void bottomNavigationView() {
+    public void bottomNavigationView() {
         mActivityHomeBinding.btmNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -86,5 +92,10 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
     @Override
     public HomeViewModel getViewModel() {
         return mHomeViewModel;
+    }
+
+    @Override
+    public AndroidInjector<android.support.v4.app.Fragment> supportFragmentInjector() {
+        return fragmentDispatchingAndroidInjector;
     }
 }

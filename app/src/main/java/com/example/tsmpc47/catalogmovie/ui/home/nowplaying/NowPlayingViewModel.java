@@ -24,6 +24,7 @@ public class NowPlayingViewModel extends BaseViewModel<NowPlayingNavigator> {
     public NowPlayingViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
         nowItemLiveData = new MutableLiveData<>();
+        nowPlaying();
     }
 
     public void nowPlaying(){
@@ -42,6 +43,7 @@ public class NowPlayingViewModel extends BaseViewModel<NowPlayingNavigator> {
                         }else{
                             getNavigator().nullData();
                         }
+                        setIsLoading(false);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

@@ -14,14 +14,14 @@ android {
         debug {
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
             buildConfigField("String", "API_KEY", "\"bdadf5ed74237b6549de22c90ba5d4f7\"")
-            buildConfigField("String", "POSTER", "\"http://image.tmdb.org/t/p/w185/\"")
+            buildConfigField("String", "POSTER", "\"http://image.tmdb.org/t/p/w185\"")
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
             buildConfigField("String", "API_KEY", "\"bdadf5ed74237b6549de22c90ba5d4f7\"")
-            buildConfigField("String", "POSTER", "\"http://image.tmdb.org/t/p/w185/\"")
+            buildConfigField("String", "POSTER", "\"http://image.tmdb.org/t/p/w185\"")
         }
     }
     dataBinding {

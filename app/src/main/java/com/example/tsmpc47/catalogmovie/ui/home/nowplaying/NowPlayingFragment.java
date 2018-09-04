@@ -9,7 +9,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -52,8 +54,6 @@ public class NowPlayingFragment extends BaseFragment<FragmentNowPlayingBinding, 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mFragmentNowPlayingBinding = getViewDataBinding();
-        mNowPlayingViewModel.nowPlaying();
-        Log.i(TAG, "onViewCreated: ");
         setUp();
         subscribeToLiveData();
     }
@@ -78,7 +78,7 @@ public class NowPlayingFragment extends BaseFragment<FragmentNowPlayingBinding, 
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mNowPlayingViewModel.setNavigator(this);
-        Log.i(TAG, "onCreate: ");
+        Log.i(TAG, "onCreate: "+savedInstanceState);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class NowPlayingFragment extends BaseFragment<FragmentNowPlayingBinding, 
 
     @Override
     public int getLayoutId() {
-        return R.layout.item_now_playing;
+        return R.layout.fragment_now_playing;
     }
 
     @Override
