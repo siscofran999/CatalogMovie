@@ -64,4 +64,9 @@ public class AppDataManager implements DataManager {
         return mApiHelper.getNowPlayingData();
     }
 
+    @Override
+    public Single<NowPlaying> getUpComingData() {
+        return mApiHelper.getUpComingData();
+    }
+
 }

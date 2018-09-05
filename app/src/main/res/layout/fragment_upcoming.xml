@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -9,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingViewModel" />
+            type="com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingViewModel" />
     </data>
 
     <FrameLayout
@@ -17,10 +16,10 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvnowplaying"
+            android:id="@+id/rvupcoming"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:adapterNow="@{viewModel.NowItemViewModels}"/>
+            app:adapterUp="@{viewModel.UpItemViewModels}"/>
 
         <android.support.v4.widget.ContentLoadingProgressBar
             android:id="@+id/address_looking_up"

@@ -21,6 +21,7 @@ import com.example.tsmpc47.catalogmovie.data.model.Result;
 import com.example.tsmpc47.catalogmovie.databinding.FragmentNowPlayingBinding;
 import com.example.tsmpc47.catalogmovie.ui.base.BaseFragment;
 import com.example.tsmpc47.catalogmovie.BR;
+import com.example.tsmpc47.catalogmovie.utils.NetworkUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -100,5 +101,12 @@ public class NowPlayingFragment extends BaseFragment<FragmentNowPlayingBinding, 
     @Override
     public void nullData() {
         Toast.makeText(getActivity(), "Maaf, tidak ada film sekarang", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void checkConnection() {
+        if (!NetworkUtils.isNetworkConnected(getActivity())){
+            Toast.makeText(getActivity(), "Maaf, harap cek internet anda", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -8,6 +8,7 @@ import com.example.tsmpc47.catalogmovie.data.DataManager;
 import com.example.tsmpc47.catalogmovie.data.model.NowPlaying;
 import com.example.tsmpc47.catalogmovie.data.model.Result;
 import com.example.tsmpc47.catalogmovie.ui.base.BaseViewModel;
+import com.example.tsmpc47.catalogmovie.utils.NetworkUtils;
 import com.example.tsmpc47.catalogmovie.utils.rx.SchedulerProvider;
 
 import java.util.List;
@@ -48,6 +49,7 @@ public class NowPlayingViewModel extends BaseViewModel<NowPlayingNavigator> {
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) {
+                        getNavigator().checkConnection();
                         Log.e(TAG, "accept: "+throwable.getMessage());
                         setIsLoading(false);
                     }

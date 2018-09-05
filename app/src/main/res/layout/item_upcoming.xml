@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingItemViewModel" />
+    </data>
+
+<android.support.v7.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="@{() -> viewModel.detail()}">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <ImageView
+            android:id="@+id/imgup"
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:src="@drawable/ic_launcher_background"
+            app:imageUrl="@{viewModel.imageup}"
+            />
+
+        <TextView
+            android:id="@+id/judulup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ini Judul"
+            tools:text="@{viewModel.judulup}"
+            android:textColor="@color/colorAccent"
+            android:layout_below="@+id/imgup" />
+
+        <RatingBar
+            android:id="@+id/ratingup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/RatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:numStars="5"
+            tools:rating="@{viewModel.starup}"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/judulup"/>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+
+</layout>

@@ -1,5 +1,6 @@
 package com.example.tsmpc47.catalogmovie.ui.home.nowplaying;
 
+import android.content.Intent;
 import android.databinding.ObservableField;
 import android.util.Log;
 
@@ -36,10 +37,12 @@ public class NowPlayingItemViewModel {
     }
 
     public void share(){
-        Log.i(TAG, "detail: Ini share");
+        mListerner.shareButton("Ada Film "+mResult.getTitle()+" di bioskop nih, yuk pergi nonton");
     }
 
     public interface ItemNowPlayingListener {
         void clickMovieDetailActivity(Result result);
+
+        void shareButton(String judul);
     }
 }

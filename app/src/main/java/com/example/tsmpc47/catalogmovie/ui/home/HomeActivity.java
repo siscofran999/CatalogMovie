@@ -16,6 +16,7 @@ import com.example.tsmpc47.catalogmovie.databinding.ActivityHomeBinding;
 import com.example.tsmpc47.catalogmovie.ui.base.BaseActivity;
 import com.example.tsmpc47.catalogmovie.BR;
 import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingFragment;
+import com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingFragment;
 
 import javax.inject.Inject;
 
@@ -46,6 +47,10 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_controller,fragment).commit();
     }
 
+    private void setBottomFragment(UpComingFragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_controller,fragment).commit();
+    }
+
     public void bottomNavigationView() {
         mActivityHomeBinding.btmNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -55,7 +60,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
                         setBottomFragment(NowPlayingFragment.newInstance());
                         break;
                     case R.id.action_upcoming :
-                        Toast.makeText(HomeActivity.this, "upcoming", Toast.LENGTH_SHORT).show();
+                        setBottomFragment(UpComingFragment.newInstance());
                         break;
                 }
                 return true;

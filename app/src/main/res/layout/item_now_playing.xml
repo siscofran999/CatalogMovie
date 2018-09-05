@@ -42,6 +42,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Moana"
+                android:textColor="@color/colorAccent"
                 android:textStyle="bold"
                 android:layout_toEndOf="@+id/imageUrl"
                 tools:text="@{viewModel.judulnow}" />
@@ -54,6 +55,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/imageUrl"
                 android:layout_below="@+id/judulnow"
+                android:textColor="@color/colorAccent"
                 android:text="Ini desc"
                 tools:text="@{viewModel.descnow}" />
 
@@ -65,6 +67,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/imageUrl"
                 android:layout_below="@+id/descnow"
+                android:textColor="@color/colorAccent"
                 android:text="Rabu"
                 tools:text="@{viewModel.datenow}" />
 

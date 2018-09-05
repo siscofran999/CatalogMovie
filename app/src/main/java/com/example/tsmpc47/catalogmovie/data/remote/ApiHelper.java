@@ -11,4 +11,6 @@ public interface ApiHelper {
 
     Single<NowPlaying> getNowPlayingData();
 
+    Single<NowPlaying> getUpComingData();
+
 }

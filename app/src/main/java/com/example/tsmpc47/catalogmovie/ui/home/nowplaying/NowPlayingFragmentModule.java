@@ -5,7 +5,6 @@ import android.support.v7.widget.LinearLayoutManager;
 
 import com.example.tsmpc47.catalogmovie.ViewModelProviderFactory;
 import com.example.tsmpc47.catalogmovie.data.DataManager;
-import com.example.tsmpc47.catalogmovie.data.model.NowPlaying;
 import com.example.tsmpc47.catalogmovie.data.model.Result;
 import com.example.tsmpc47.catalogmovie.utils.rx.SchedulerProvider;
 

@@ -77,5 +77,15 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             Intent intent = DetailMovieActivity.gotoDetailMovieActivity(context,result);
             context.startActivity(intent);
         }
+
+        @Override
+        public void shareButton(String judul) {
+            Context context = mBinding.getRoot().getContext();
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, judul);
+            context.startActivity(Intent.createChooser(sharingIntent, "Share via"));
+        }
     }
 }

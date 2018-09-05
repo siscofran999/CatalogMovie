@@ -9,6 +9,7 @@ import android.widget.RatingBar;
 import com.bumptech.glide.Glide;
 import com.example.tsmpc47.catalogmovie.data.model.Result;
 import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingAdapter;
+import com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingAdapter;
 import com.example.tsmpc47.catalogmovie.ui.main.MainAdapter;
 import com.example.tsmpc47.catalogmovie.ui.main.MainItemViewModel;
 
@@ -32,10 +33,20 @@ public final class BindingUtils {
         }
     }
 
-    @BindingAdapter({"adapter"})
+    @BindingAdapter({"adapterNow"})
     public static void addNowPlayingItems(RecyclerView recyclerView,
                                           ArrayList<Result> mainItem) {
         NowPlayingAdapter adapter = (NowPlayingAdapter) recyclerView.getAdapter();
+        if(adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(mainItem);
+        }
+    }
+
+    @BindingAdapter({"adapterUp"})
+    public static void addUpComingItems(RecyclerView recyclerView,
+                                          ArrayList<Result> mainItem) {
+        UpComingAdapter adapter = (UpComingAdapter) recyclerView.getAdapter();
         if(adapter != null) {
             adapter.clearItems();
             adapter.addItems(mainItem);

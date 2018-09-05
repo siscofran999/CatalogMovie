@@ -43,4 +43,13 @@ public class AppApiHelper implements ApiHelper {
                 .build()
                 .getObjectSingle(NowPlaying.class);
     }
+
+    @Override
+    public Single<NowPlaying> getUpComingData() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.URL+"movie/upcoming?")
+                .addQueryParameter("api_key", BuildConfig.API_KEY)
+                .addQueryParameter("language","en-US")
+                .build()
+                .getObjectSingle(NowPlaying.class);
+    }
 }
