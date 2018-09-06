@@ -8,6 +8,6 @@
         app:actionViewClass="android.widget.SearchView" />
     <group android:menuCategory="container">
         <item android:id="@+id/menu1"
-            android:title="Ganti Bahasa" />
+            android:title="@string/ganti_bahasa" />
     </group>
 </menu>

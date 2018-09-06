@@ -4,14 +4,14 @@
     <item
         android:id="@+id/action_now"
         android:enabled="true"
-        android:title="NOW PLAYING"
+        android:title="@string/now_playing"
         android:icon="@drawable/ic_play_circle_outline_black_24dp"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_upcoming"
         android:enabled="true"
-        android:title="UPCOMING"
+        android:title="@string/upcoming"
         android:icon="@drawable/ic_movie_black_24dp"
         app:showAsAction="ifRoom" />
 </menu>

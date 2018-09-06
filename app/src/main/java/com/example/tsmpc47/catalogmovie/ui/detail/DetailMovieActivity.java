@@ -35,7 +35,7 @@ public class DetailMovieActivity extends BaseActivity<ActivityDetailMovieBinding
     private void getDataIntent() {
         Intent intent = getIntent();
         Result result = intent.getParcelableExtra("dataMovie");
-        mDetailMovieViewModel.setDataMovie(result);
+        mDetailMovieViewModel.setDataMovie(result, getResources());
     }
 
     @Override

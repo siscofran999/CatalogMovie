@@ -1,6 +1,8 @@
 package com.example.tsmpc47.catalogmovie.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -74,13 +76,17 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         inflater.inflate(R.menu.menu_item,menu);
 
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
-        searchView.setQueryHint("Masukan Judul ..");
+        searchView.setQueryHint(getResources().getString(R.string.search));
 
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu1){
+            Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+            startActivity(mIntent);
+        }
         return super.onOptionsItemSelected(item);
     }
 

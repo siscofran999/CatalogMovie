@@ -2,15 +2,15 @@
     <string name="app_name">CatalogMovie</string>
     <string name="cari_film">Cari Film</string>
     <string name="cari">Cari</string>
-    <string name="title">Title : </string>
-    <string name="overview">Overview</string>
-    <string name="date">Date</string>
+    <string name="title">Judul :</string>
+    <string name="overview">Sinopsis :</string>
+    <string name="date">Tanggal :</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="now_playing">NOW PLAYING</string>
+    <string name="now_playing">Sekarang</string>
     <string name="upcoming">Mendatang</string>
-    <string name="detail">Detail</string>
+    <string name="detail">Rincian</string>
     <string name="share">Bagikan</string>
     <string name="ganti_bahasa">Ganti Bahasa</string>
     <string name="search">Masukan Judul ..</string>

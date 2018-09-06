@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
                     android:onClick="@{() -> viewModel.detail()}"
-                    android:text="Detail"
+                    android:text="@string/detail"
                     android:textColor="@color/colorAccent" />
 
                 <Button
@@ -108,7 +108,7 @@
                     android:layout_marginStart="8dp"
                     android:background="@color/colorPrimary"
                     android:onClick="@{() -> viewModel.share()}"
-                    android:text="Share"
+                    android:text="@string/share"
                     android:textColor="@color/colorAccent" />
 
 

@@ -1,9 +1,11 @@
 package com.example.tsmpc47.catalogmovie.ui.detail;
 
+import android.content.res.Resources;
 import android.databinding.ObservableField;
 import android.util.Log;
 
 import com.example.tsmpc47.catalogmovie.BuildConfig;
+import com.example.tsmpc47.catalogmovie.R;
 import com.example.tsmpc47.catalogmovie.data.DataManager;
 import com.example.tsmpc47.catalogmovie.data.model.Result;
 import com.example.tsmpc47.catalogmovie.ui.base.BaseViewModel;
@@ -22,10 +24,10 @@ public class DetailMovieViewModel extends BaseViewModel<DetailMovieNavigator> {
         super(dataManager, schedulerProvider);
     }
 
-    public void setDataMovie(Result result) {
+    public void setDataMovie(Result result, Resources resources) {
         this.img.set(BuildConfig.POSTER+result.getPosterPath());
-        this.date.set("Tanggal Rilis : "+converDate(result.getReleaseDate()));
-        this.title.set(result.getTitle());
-        this.overview.set("Deskripsi : "+result.getOverview());
+        this.date.set(resources.getString(R.string.date)+" "+converDate(result.getReleaseDate()));
+        this.title.set(resources.getString(R.string.title)+" "+result.getTitle());
+        this.overview.set(resources.getString(R.string.overview)+" "+result.getOverview());
     }
 }

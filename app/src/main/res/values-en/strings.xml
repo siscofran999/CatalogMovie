@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CatalogMovie</string>
+    <string name="cari_film">Search Film</string>
+    <string name="cari">Search</string>
+    <string name="title">Title :</string>
+    <string name="overview">Overview :</string>
+    <string name="date">Date :</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="now_playing">NOW PLAYING</string>
+    <string name="upcoming">UPCOMING</string>
+    <string name="detail">Detail</string>
+    <string name="share">Share</string>
+    <string name="ganti_bahasa">Change Language</string>
+    <string name="search">Input Title ..</string>
+</resources>
