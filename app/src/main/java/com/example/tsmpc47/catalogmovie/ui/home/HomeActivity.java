@@ -19,6 +19,7 @@ import com.example.tsmpc47.catalogmovie.ui.base.BaseActivity;
 import com.example.tsmpc47.catalogmovie.BR;
 import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingFragment;
 import com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingFragment;
+import com.example.tsmpc47.catalogmovie.ui.search.SearchActivity;
 
 import javax.inject.Inject;
 
@@ -75,9 +76,6 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_item,menu);
 
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
-        searchView.setQueryHint(getResources().getString(R.string.search));
-
         return true;
     }
 
@@ -86,6 +84,8 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         if (item.getItemId() == R.id.menu1){
             Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
             startActivity(mIntent);
+        }else if(item.getItemId() == R.id.search){
+            startActivity(SearchActivity.gotoSearchActivity(this));
         }
         return super.onOptionsItemSelected(item);
     }

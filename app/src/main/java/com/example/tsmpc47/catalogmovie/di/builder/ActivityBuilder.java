@@ -8,6 +8,8 @@ import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingFragmentPro
 import com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingFragmentProvider;
 import com.example.tsmpc47.catalogmovie.ui.main.MainActivity;
 import com.example.tsmpc47.catalogmovie.ui.main.MainActivityModule;
+import com.example.tsmpc47.catalogmovie.ui.search.SearchActivity;
+import com.example.tsmpc47.catalogmovie.ui.search.SearchActivityModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -23,5 +25,8 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = {HomeActivityModule.class, NowPlayingFragmentProvider.class, UpComingFragmentProvider.class})
     abstract HomeActivity bindHomeActivity();
+
+    @ContributesAndroidInjector(modules = SearchActivityModule.class)
+    abstract SearchActivity bindSearchActivity();
 
 }

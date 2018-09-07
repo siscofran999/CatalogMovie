@@ -12,6 +12,7 @@ import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingAdapter;
 import com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingAdapter;
 import com.example.tsmpc47.catalogmovie.ui.main.MainAdapter;
 import com.example.tsmpc47.catalogmovie.ui.main.MainItemViewModel;
+import com.example.tsmpc47.catalogmovie.ui.search.SearchAdapter;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,16 @@ public final class BindingUtils {
     public static void addUpComingItems(RecyclerView recyclerView,
                                           ArrayList<Result> mainItem) {
         UpComingAdapter adapter = (UpComingAdapter) recyclerView.getAdapter();
+        if(adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(mainItem);
+        }
+    }
+
+    @BindingAdapter({"adapterSearch"})
+    public static void addSearchItems(RecyclerView recyclerView,
+                                        ArrayList<Result> mainItem) {
+        SearchAdapter adapter = (SearchAdapter) recyclerView.getAdapter();
         if(adapter != null) {
             adapter.clearItems();
             adapter.addItems(mainItem);
