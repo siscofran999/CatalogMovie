@@ -19,6 +19,7 @@ public class DetailMovieViewModel extends BaseViewModel<DetailMovieNavigator> {
     public ObservableField<String> title = new ObservableField<>();
     public ObservableField<String> overview = new ObservableField<>();
     public ObservableField<String> date = new ObservableField<>();
+    public ObservableField<String> popularity = new ObservableField<>();
 
     public DetailMovieViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
         super(dataManager, schedulerProvider);
@@ -29,5 +30,6 @@ public class DetailMovieViewModel extends BaseViewModel<DetailMovieNavigator> {
         this.date.set(resources.getString(R.string.date)+" "+converDate(result.getReleaseDate()));
         this.title.set(resources.getString(R.string.title)+" "+result.getTitle());
         this.overview.set(resources.getString(R.string.overview)+" "+result.getOverview());
+        this.popularity.set("Popularity"+" "+result.getPopularity());
     }
 }
