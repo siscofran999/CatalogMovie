@@ -14,19 +14,17 @@
  *  limitations under the License
  */
 
-package com.example.tsmpc47.catalogmovie.data;
+package com.example.tsmpc47.catalogmovie.di;
 
-import com.example.tsmpc47.catalogmovie.data.db.DbHelper;
-import com.example.tsmpc47.catalogmovie.data.remote.ApiHelper;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
-import java.util.List;
-
-import io.reactivex.Observable;
+import javax.inject.Qualifier;
 
 /**
  * Created by amitshekhar on 07/07/17.
  */
-
-public interface DataManager extends ApiHelper,DbHelper {
-
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+public @interface DatabaseInfo {
 }

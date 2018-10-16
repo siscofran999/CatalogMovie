@@ -14,19 +14,17 @@
  *  limitations under the License
  */
 
-package com.example.tsmpc47.catalogmovie.data;
-
-import com.example.tsmpc47.catalogmovie.data.db.DbHelper;
-import com.example.tsmpc47.catalogmovie.data.remote.ApiHelper;
-
-import java.util.List;
-
-import io.reactivex.Observable;
+package com.example.tsmpc47.catalogmovie.utils;
 
 /**
  * Created by amitshekhar on 07/07/17.
  */
 
-public interface DataManager extends ApiHelper,DbHelper {
+public final class AppConstants {
 
+    private AppConstants() {
+        // This utility class is not publicly instantiable
+    }
+
+    public static final String DB_NAME = "movie.db";
 }

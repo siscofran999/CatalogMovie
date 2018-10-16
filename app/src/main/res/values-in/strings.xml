@@ -4,12 +4,14 @@
     <string name="cari">Cari</string>
     <string name="title">Judul :</string>
     <string name="overview">Sinopsis :</string>
+    <string name="popularity">Popular :</string>
     <string name="date">Tanggal :</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="now_playing">Sekarang</string>
     <string name="upcoming">Mendatang</string>
+    <string name="favorite">Suka</string>
     <string name="detail">Rincian</string>
     <string name="share">Bagikan</string>
     <string name="ganti_bahasa">Ganti Bahasa</string>

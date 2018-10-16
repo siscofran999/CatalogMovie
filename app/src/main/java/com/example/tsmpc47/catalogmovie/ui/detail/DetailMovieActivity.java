@@ -3,6 +3,9 @@ package com.example.tsmpc47.catalogmovie.ui.detail;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.RatingBar;
+import android.widget.Toast;
 
 import com.example.tsmpc47.catalogmovie.R;
 import com.example.tsmpc47.catalogmovie.data.model.Result;
@@ -18,6 +21,7 @@ public class DetailMovieActivity extends BaseActivity<ActivityDetailMovieBinding
     DetailMovieViewModel mDetailMovieViewModel;
 
     private ActivityDetailMovieBinding mActivityDetailMovieBinding;
+    private static final String TAG = "DetailMovieActivity";
 
     public static Intent gotoDetailMovieActivity(Context context, Result movie){
         Intent intent = new Intent(context, DetailMovieActivity.class);
@@ -29,6 +33,7 @@ public class DetailMovieActivity extends BaseActivity<ActivityDetailMovieBinding
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActivityDetailMovieBinding = getViewDataBinding();
+        mDetailMovieViewModel.setNavigator(this);
         getDataIntent();
     }
 
@@ -51,5 +56,15 @@ public class DetailMovieActivity extends BaseActivity<ActivityDetailMovieBinding
     @Override
     public DetailMovieViewModel getViewModel() {
         return mDetailMovieViewModel;
+    }
+
+    @Override
+    public void toastBerhasil() {
+        Toast.makeText(this, "Berhasil Menambahkan Favorite", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void sudahAda() {
+        Toast.makeText(this, "Maaf, sudah favorite", Toast.LENGTH_SHORT).show();
     }
 }

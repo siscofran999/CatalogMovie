@@ -17,9 +17,13 @@
 package com.example.tsmpc47.catalogmovie.data;
 
 import android.content.Context;
+import android.database.SQLException;
 
+import com.example.tsmpc47.catalogmovie.data.db.AppDbHelper;
+import com.example.tsmpc47.catalogmovie.data.db.DbHelper;
 import com.example.tsmpc47.catalogmovie.data.model.MovieResponse;
 import com.example.tsmpc47.catalogmovie.data.model.NowPlaying;
+import com.example.tsmpc47.catalogmovie.data.model.Result;
 import com.example.tsmpc47.catalogmovie.data.remote.ApiHelper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,12 +50,13 @@ public class AppDataManager implements DataManager {
 
     private final Context mContext;
     private final ApiHelper mApiHelper;
+    private final DbHelper mDbHelper;
 
     @Inject
-    public AppDataManager(Context context, ApiHelper apiHelper)
-    {
+    public AppDataManager(Context context, ApiHelper apiHelper, DbHelper dbHelper) {
         mContext = context;
         mApiHelper = apiHelper;
+        this.mDbHelper = dbHelper;
     }
 
     @Override
@@ -68,5 +73,26 @@ public class AppDataManager implements DataManager {
     public Single<NowPlaying> getUpComingData() {
         return mApiHelper.getUpComingData();
     }
+
+    @Override
+    public AppDbHelper openDB() throws SQLException {
+        return mDbHelper.openDB();
+    }
+
+    @Override
+    public void closeDb() {
+        mDbHelper.closeDb();
+    }
+
+    @Override
+    public void insertDB(String img, String title, String overview, String date) {
+        mDbHelper.insertDB(img,title,overview,date);
+    }
+
+    @Override
+    public int searchData(String title) {
+        return mDbHelper.searchData(title);
+    }
+
 
 }

@@ -183,6 +183,7 @@ public class Result implements Parcelable{
         overview = source.readString();
         posterPath = source.readString();
         releaseDate = source.readString();
+        popularity = source.readDouble();
     }
 
     @Override
@@ -196,6 +197,7 @@ public class Result implements Parcelable{
         dest.writeString(overview);
         dest.writeString(posterPath);
         dest.writeString(releaseDate);
+        dest.writeDouble(popularity);
     }
 
 

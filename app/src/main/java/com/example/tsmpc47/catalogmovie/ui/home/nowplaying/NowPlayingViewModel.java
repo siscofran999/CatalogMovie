@@ -38,7 +38,6 @@ public class NowPlayingViewModel extends BaseViewModel<NowPlayingNavigator> {
                 .subscribe(new Consumer<NowPlaying>() {
                     @Override
                     public void accept(NowPlaying nowPlaying) {
-                        Log.i(TAG, "accept: "+nowPlaying.getTotalResults());
                         if (nowPlaying.getTotalResults() != 0){
                             nowItemLiveData.setValue(nowPlaying.getResults());
                         }else{

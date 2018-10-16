@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -73,6 +74,7 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         @Override
         public void clickMovieDetailActivity(Result result) {
+            Log.i(TAG, "clickMovieDetailActivity: "+result.getPopularity());
             Context context = mBinding.getRoot().getContext();
             Intent intent = DetailMovieActivity.gotoDetailMovieActivity(context,result);
             context.startActivity(intent);

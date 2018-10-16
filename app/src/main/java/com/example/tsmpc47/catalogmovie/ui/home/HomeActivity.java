@@ -65,6 +65,9 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
                     case R.id.action_upcoming :
                         setBottomFragment(UpComingFragment.newInstance());
                         break;
+                    case R.id.action_favorite :
+                        setBottomFragment(UpComingFragment.newInstance());
+                        break;
                 }
                 return true;
             }

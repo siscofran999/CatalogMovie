@@ -69,4 +69,9 @@ public final class BindingUtils {
         rating.setRating(Float.parseFloat(value));
     }
 
+    @BindingAdapter({"favorite"})
+    public static void setRatingFavorite(RatingBar rating, String value){
+        rating.setRating(Float.parseFloat(value));
+    }
+
 }
