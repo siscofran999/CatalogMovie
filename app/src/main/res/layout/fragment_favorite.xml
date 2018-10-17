@@ -20,7 +20,7 @@
             android:id="@+id/rvfavorite"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:adapterNow="@{viewModel.NowItemViewModels}"/>
+            app:adapterFav="@{viewModel.FavoriteViewModels}"/>
 
         <android.support.v4.widget.ContentLoadingProgressBar
             android:id="@+id/address_looking_up"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            tools:listitem="@layout/item_now_playing"
+            tools:listitem="@layout/item_favorite"
             android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"/>
 
 

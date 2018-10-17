@@ -25,22 +25,14 @@ import com.example.tsmpc47.catalogmovie.data.model.MovieResponse;
 import com.example.tsmpc47.catalogmovie.data.model.NowPlaying;
 import com.example.tsmpc47.catalogmovie.data.model.Result;
 import com.example.tsmpc47.catalogmovie.data.remote.ApiHelper;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.internal.$Gson$Types;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.Single;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.functions.Function;
 
 /**
  * Created by amitshekhar on 07/07/17.
@@ -85,13 +77,18 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public void insertDB(String img, String title, String overview, String date) {
-        mDbHelper.insertDB(img,title,overview,date);
+    public void insertDB(String img, String title, String overview, String date, String rating) {
+        mDbHelper.insertDB(img,title,overview,date, rating);
     }
 
     @Override
     public int searchData(String title) {
         return mDbHelper.searchData(title);
+    }
+
+    @Override
+    public Observable<List<Result>> getDataFavorite() {
+        return mDbHelper.getDataFavorite();
     }
 
 

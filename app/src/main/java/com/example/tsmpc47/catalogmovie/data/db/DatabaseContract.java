@@ -16,5 +16,7 @@ public class DatabaseContract {
 
         public static String tgl = "tgl";
 
+        public static String bintang = "bintang";
+
     }
 }

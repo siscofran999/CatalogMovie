@@ -178,12 +178,17 @@ public class Result implements Parcelable{
         this.releaseDate = releaseDate;
     }
 
+    public Result(){
+
+    }
+
     public Result(Parcel source){
         title = source.readString();
         overview = source.readString();
         posterPath = source.readString();
         releaseDate = source.readString();
         popularity = source.readDouble();
+        voteAverage = source.readDouble();
     }
 
     @Override
@@ -198,6 +203,7 @@ public class Result implements Parcelable{
         dest.writeString(posterPath);
         dest.writeString(releaseDate);
         dest.writeDouble(popularity);
+        dest.writeDouble(voteAverage);
     }
 
 

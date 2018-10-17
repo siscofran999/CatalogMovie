@@ -8,10 +8,10 @@ import android.widget.RatingBar;
 
 import com.bumptech.glide.Glide;
 import com.example.tsmpc47.catalogmovie.data.model.Result;
+import com.example.tsmpc47.catalogmovie.ui.home.favorite.FavoriteAdapter;
 import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingAdapter;
 import com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingAdapter;
 import com.example.tsmpc47.catalogmovie.ui.main.MainAdapter;
-import com.example.tsmpc47.catalogmovie.ui.main.MainItemViewModel;
 import com.example.tsmpc47.catalogmovie.ui.search.SearchAdapter;
 
 import java.util.ArrayList;
@@ -69,9 +69,14 @@ public final class BindingUtils {
         rating.setRating(Float.parseFloat(value));
     }
 
-    @BindingAdapter({"favorite"})
-    public static void setRatingFavorite(RatingBar rating, String value){
-        rating.setRating(Float.parseFloat(value));
+    @BindingAdapter({"adapterFav"})
+    public static void addFavoriteItems(RecyclerView recyclerView,
+                                          ArrayList<Result> mainItem) {
+        FavoriteAdapter adapter = (FavoriteAdapter) recyclerView.getAdapter();
+        if(adapter != null) {
+            adapter.clearItems();
+            adapter.addItems(mainItem);
+        }
     }
 
 }

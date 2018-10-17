@@ -4,6 +4,7 @@ import com.example.tsmpc47.catalogmovie.ui.detail.DetailMovieActivity;
 import com.example.tsmpc47.catalogmovie.ui.detail.DetailMovieActivityModule;
 import com.example.tsmpc47.catalogmovie.ui.home.HomeActivity;
 import com.example.tsmpc47.catalogmovie.ui.home.HomeActivityModule;
+import com.example.tsmpc47.catalogmovie.ui.home.favorite.FavoriteFragmentProvider;
 import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingFragmentProvider;
 import com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingFragmentProvider;
 import com.example.tsmpc47.catalogmovie.ui.main.MainActivity;
@@ -23,7 +24,7 @@ public abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = DetailMovieActivityModule.class)
     abstract DetailMovieActivity bindDetailMovieActivity();
 
-    @ContributesAndroidInjector(modules = {HomeActivityModule.class, NowPlayingFragmentProvider.class, UpComingFragmentProvider.class})
+    @ContributesAndroidInjector(modules = {HomeActivityModule.class, NowPlayingFragmentProvider.class, UpComingFragmentProvider.class, FavoriteFragmentProvider.class})
     abstract HomeActivity bindHomeActivity();
 
     @ContributesAndroidInjector(modules = SearchActivityModule.class)

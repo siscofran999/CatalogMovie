@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.example.tsmpc47.catalogmovie.data.model.Result;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -17,6 +18,7 @@ import javax.inject.Singleton;
 import io.reactivex.Observable;
 
 import static android.provider.BaseColumns._ID;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.bintang;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.deskripsi;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.gambar;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.judul;
@@ -49,10 +51,10 @@ public class AppDbHelper implements DbHelper {
     }
 
     @Override
-    public void insertDB(String img, String title, String overview, String date) {
+    public void insertDB(String img, String title, String overview, String date, String rating) {
         openDB();
         beginTransaction();
-        insertTransaction(img,title,overview,date);
+        insertTransaction(img,title,overview,date, rating);
     }
 
     @Override
@@ -66,19 +68,48 @@ public class AppDbHelper implements DbHelper {
         return cursor.getCount();
     }
 
+    @Override
+    public Observable<List<Result>> getDataFavorite() {
+        openDB();
+        beginTransaction();
+        Cursor cursor = mSQLiteDatabase.query(Table_Name_Movie_Favorite,null,
+                null,null,null,null,_ID + " ASC",null);
 
-    private void insertTransaction(String img, String title, String overview, String date) {
+        Log.i(TAG, "getDataFavorite: "+cursor.getCount());
+        final ArrayList<Result> arrayList = new ArrayList<>();
+        Result favorite;
+        if (cursor.getCount() > 0 && cursor.moveToFirst()) {
+            do {
+                favorite = new Result();
+                favorite.setPosterPath(cursor.getString(cursor.getColumnIndex(gambar)));
+                favorite.setReleaseDate(cursor.getString(cursor.getColumnIndex(tgl)));
+                favorite.setOverview(cursor.getString(cursor.getColumnIndex(deskripsi)));
+                favorite.setTitle(cursor.getString(cursor.getColumnIndex(judul)));
+                favorite.setVoteAverage(Double.parseDouble(cursor.getString(cursor.getColumnIndex(bintang))));
+
+                arrayList.add(favorite);
+                cursor.moveToNext();
+
+            } while (!cursor.isAfterLast());
+        }
+        cursor.close();
+
+        return Observable.fromCallable(() -> arrayList);
+    }
+
+    private void insertTransaction(String img, String title, String overview, String date, String rating) {
         Log.i(TAG, "insertTransaction img: "+img);
         Log.i(TAG, "insertTransaction title: "+title);
         Log.i(TAG, "insertTransaction overview: "+overview);
         Log.i(TAG, "insertTransaction date: "+date);
         String sql;
-        sql = "INSERT INTO "+ Table_Name_Movie_Favorite +"("+ gambar +", "+ judul +", "+ deskripsi +", "+ tgl+") VALUES (?,?,?,?)";
+        sql = "INSERT INTO "+ Table_Name_Movie_Favorite +"("+ gambar +", "+ judul +", "+ deskripsi +", "+ tgl+","+ bintang+") VALUES (?,?,?,?,?)";
         SQLiteStatement stmt = mSQLiteDatabase.compileStatement(sql);
         stmt.bindString(1, img);
         stmt.bindString(2, title);
         stmt.bindString(3, overview);
         stmt.bindString(4, date);
+        stmt.bindString(5, rating);
         stmt.execute();
         stmt.clearBindings();
         Log.i(TAG, "insertTransaction: Sukses");

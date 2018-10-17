@@ -17,6 +17,7 @@ import com.example.tsmpc47.catalogmovie.R;
 import com.example.tsmpc47.catalogmovie.databinding.ActivityHomeBinding;
 import com.example.tsmpc47.catalogmovie.ui.base.BaseActivity;
 import com.example.tsmpc47.catalogmovie.BR;
+import com.example.tsmpc47.catalogmovie.ui.home.favorite.FavoriteFragment;
 import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingFragment;
 import com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingFragment;
 import com.example.tsmpc47.catalogmovie.ui.search.SearchActivity;
@@ -54,6 +55,10 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_controller,fragment).commit();
     }
 
+    private void setBottomFragment(FavoriteFragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_controller,fragment).commit();
+    }
+
     public void bottomNavigationView() {
         mActivityHomeBinding.btmNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -66,7 +71,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
                         setBottomFragment(UpComingFragment.newInstance());
                         break;
                     case R.id.action_favorite :
-                        setBottomFragment(UpComingFragment.newInstance());
+                        setBottomFragment(FavoriteFragment.newInstance());
                         break;
                 }
                 return true;

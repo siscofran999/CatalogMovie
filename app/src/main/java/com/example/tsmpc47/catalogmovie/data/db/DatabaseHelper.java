@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import static android.provider.BaseColumns._ID;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.bintang;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.deskripsi;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.gambar;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.judul;
@@ -22,7 +23,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             +gambar + " varchar(50) not null, "
             +deskripsi + " varchar(50) not null, "
             +tgl + " varchar(30) not null, "
-            +judul + " varchar(100) not null);";
+            +judul + " varchar(100) not null,"
+            +bintang + " varchar(30) not null);";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
