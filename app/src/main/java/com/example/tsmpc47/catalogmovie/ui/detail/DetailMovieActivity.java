@@ -2,6 +2,7 @@ package com.example.tsmpc47.catalogmovie.ui.detail;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
@@ -64,7 +65,7 @@ public class DetailMovieActivity extends BaseActivity<ActivityDetailMovieBinding
     }
 
     @Override
-    public void sudahAda() {
-        Toast.makeText(this, "Maaf, sudah favorite", Toast.LENGTH_SHORT).show();
+    public void toastDelete() {
+        Toast.makeText(this, "Berhasil Menghapus Favorite", Toast.LENGTH_SHORT).show();
     }
 }

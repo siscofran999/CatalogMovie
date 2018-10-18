@@ -16,7 +16,9 @@
 
 package com.example.tsmpc47.catalogmovie.data;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 
 import com.example.tsmpc47.catalogmovie.data.db.AppDbHelper;
@@ -77,8 +79,8 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public void insertDB(String img, String title, String overview, String date, String rating) {
-        mDbHelper.insertDB(img,title,overview,date, rating);
+    public void insertDB(String img, String title, String overview, String date, String rating, String popular) {
+        mDbHelper.insertDB(img,title,overview,date, rating, popular);
     }
 
     @Override
@@ -89,6 +91,31 @@ public class AppDataManager implements DataManager {
     @Override
     public Observable<List<Result>> getDataFavorite() {
         return mDbHelper.getDataFavorite();
+    }
+
+    @Override
+    public void deletedFavorite(String title) {
+        mDbHelper.deletedFavorite(title);
+    }
+
+    @Override
+    public Cursor queryProvider() {
+        return mDbHelper.queryProvider();
+    }
+
+    @Override
+    public Cursor queryByIdProvider(String lastPathSegment) {
+        return mDbHelper.queryByIdProvider(lastPathSegment);
+    }
+
+    @Override
+    public long insertProvider(ContentValues contentValues) {
+        return mDbHelper.insertProvider(contentValues);
+    }
+
+    @Override
+    public int deleteProvider(String lastPathSegment) {
+        return mDbHelper.deleteProvider(lastPathSegment);
     }
 
 

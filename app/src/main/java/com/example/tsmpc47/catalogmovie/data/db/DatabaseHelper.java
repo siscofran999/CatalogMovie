@@ -9,6 +9,7 @@ import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieCol
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.deskripsi;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.gambar;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.judul;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.popular;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.tgl;
 import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.Table_Name_Movie_Favorite;
 
@@ -24,7 +25,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             +deskripsi + " varchar(50) not null, "
             +tgl + " varchar(30) not null, "
             +judul + " varchar(100) not null,"
-            +bintang + " varchar(30) not null);";
+            +bintang + " varchar(30) not null,"
+            +popular + " varchar(30) not null);";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

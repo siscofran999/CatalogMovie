@@ -25,7 +25,7 @@ public class FavoriteItemViewModel {
         this.judulnow.set(mResult.getTitle());
         this.descnow.set(cutText(mResult.getOverview()));
         this.datenow.set(converDate(mResult.getReleaseDate()));
-        this.star.set(String.valueOf(mResult.getVoteAverage()/2));
+        this.star.set(String.valueOf(mResult.getVoteAverage()));
     }
 
     public void detail(){

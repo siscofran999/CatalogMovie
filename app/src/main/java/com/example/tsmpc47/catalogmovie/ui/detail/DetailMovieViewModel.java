@@ -30,6 +30,7 @@ public class DetailMovieViewModel extends BaseViewModel<DetailMovieNavigator> {
     private String judul = "";
     private String deskr = "";
     private String rating = "";
+    private String popular = "";
     private static final String TAG = "DetailMovieViewModel";
 
     public DetailMovieViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
@@ -47,15 +48,17 @@ public class DetailMovieViewModel extends BaseViewModel<DetailMovieNavigator> {
         judul = result.getTitle();
         deskr = result.getOverview();
         rating = String.valueOf(result.getVoteAverage()/2);
+        popular = String.valueOf(result.getPopularity());
     }
 
     public void favorite(){
         getDataManager().openDB();
         int jml = getDataManager().searchData(judul);
         if(jml == 1){
-            getNavigator().sudahAda();
+            getDataManager().deletedFavorite(judul);
+            getNavigator().toastDelete();
         }else{
-            getDataManager().insertDB(posterPath,judul,deskr,tanggal,rating);
+            getDataManager().insertDB(posterPath,judul,deskr,tanggal,rating,popular);
             getNavigator().toastBerhasil();
         }
     }
