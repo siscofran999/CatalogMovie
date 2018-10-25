@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -9,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingItemViewModel" />
+            type="com.example.favorite.ui.main.MainItemViewModel" />
     </data>
 
     <android.support.v7.widget.CardView
@@ -33,7 +32,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
-                tools:imageUrl="@{viewModel.imageUrl}" />
+                app:imageUrl="@{viewModel.imageUrl}" />
 
             <TextView
                 android:id="@+id/judulnow"
@@ -98,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
                     android:onClick="@{() -> viewModel.detail()}"
-                    android:text="@string/detail"
+                    android:text="detail"
                     android:textColor="@color/colorAccent" />
 
                 <Button
@@ -108,7 +107,7 @@
                     android:layout_marginStart="8dp"
                     android:background="@color/colorPrimary"
                     android:onClick="@{() -> viewModel.share()}"
-                    android:text="@string/share"
+                    android:text="Share"
                     android:textColor="@color/colorAccent" />
 
             </LinearLayout>

@@ -3,6 +3,8 @@ package com.example.favorite;
 import android.app.Activity;
 import android.app.Application;
 
+import com.example.favorite.di.component.DaggerAppComponent;
+
 import javax.inject.Inject;
 
 import dagger.android.DispatchingAndroidInjector;

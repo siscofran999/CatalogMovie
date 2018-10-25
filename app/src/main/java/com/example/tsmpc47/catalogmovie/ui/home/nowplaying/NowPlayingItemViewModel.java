@@ -25,6 +25,7 @@ public class NowPlayingItemViewModel {
     public NowPlayingItemViewModel(Result result, ItemNowPlayingListener listener) {
         this.mResult = result;
         mListerner = listener;
+        Log.i(TAG, "NowPlayingItemViewModel: "+BuildConfig.POSTER+result.getPosterPath());
         this.imageUrl.set(BuildConfig.POSTER+result.getPosterPath());
         this.judulnow.set(mResult.getTitle());
         this.descnow.set(cutText(mResult.getOverview()));

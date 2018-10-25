@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.example.tsmpc47.catalogmovie.data.db.AppDbHelper;
 import com.example.tsmpc47.catalogmovie.data.db.DatabaseContract;
@@ -20,7 +21,8 @@ public class FavoriteProvider extends ContentProvider {
 
     private static final int Favorite = 1;
     private static final int Favorite_Id = 2;
-    private AppDbHelper helper;
+    private DbHelper helper;
+    private static final String TAG = "FavoriteProvider";
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -40,16 +42,17 @@ public class FavoriteProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s, @Nullable String[] strings1, @Nullable String s1) {
-        Cursor cursor;
+        Cursor cursor = null;
         switch(sUriMatcher.match(uri)){
             case Favorite:
                 cursor = helper.queryProvider();
                 break;
             case Favorite_Id:
                 cursor = helper.queryByIdProvider(uri.getLastPathSegment());
+                Log.i(TAG, "query: "+cursor.getCount());
                 break;
             default:
-                cursor = null;
+//                cursor = null;
                 break;
         }
 
@@ -73,7 +76,8 @@ public class FavoriteProvider extends ContentProvider {
         long added;
         switch (sUriMatcher.match(uri)){
             case Favorite:
-                added = helper.insertProvider(contentValues);
+                added = helper.insertProviders(contentValues);
+                Log.i(TAG, "insert: "+added);
                 break;
             default:
                 added = 0;
@@ -91,8 +95,9 @@ public class FavoriteProvider extends ContentProvider {
 
         int deleted;
         switch (sUriMatcher.match(uri)) {
-            case Favorite:
-                deleted =  helper.deleteProvider(uri.getLastPathSegment());
+            case Favorite_Id:
+                deleted =  helper.deleteProviders(uri.getLastPathSegment());
+                Log.i(TAG, "delete: "+deleted);
                 break;
             default:
                 deleted = 0;
@@ -108,6 +113,19 @@ public class FavoriteProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
-        return 0;
+        int updated ;
+        switch (sUriMatcher.match(uri)) {
+            case Favorite_Id:
+                updated =  helper.updateProvider(uri.getLastPathSegment(),contentValues);
+                break;
+            default:
+                updated = 0;
+                break;
+        }
+
+        if (updated > 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return updated;
     }
 }

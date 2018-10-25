@@ -20,7 +20,8 @@
             android:id="@+id/rvfavorite"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:adapterFav="@{viewModel.FavoriteViewModels}"/>
+            tools:listitem="@layout/item_favorite"/>
+            <!--app:adapterFav="@{viewModel.FavoriteViewModels}"/>-->
 
         <android.support.v4.widget.ContentLoadingProgressBar
             android:id="@+id/address_looking_up"

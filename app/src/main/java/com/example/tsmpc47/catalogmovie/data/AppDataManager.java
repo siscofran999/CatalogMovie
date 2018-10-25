@@ -16,10 +16,12 @@
 
 package com.example.tsmpc47.catalogmovie.data;
 
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.net.Uri;
 
 import com.example.tsmpc47.catalogmovie.data.db.AppDbHelper;
 import com.example.tsmpc47.catalogmovie.data.db.DbHelper;
@@ -78,25 +80,25 @@ public class AppDataManager implements DataManager {
         mDbHelper.closeDb();
     }
 
-    @Override
-    public void insertDB(String img, String title, String overview, String date, String rating, String popular) {
-        mDbHelper.insertDB(img,title,overview,date, rating, popular);
-    }
+//    @Override
+//    public void insertDB(String img, String title, String overview, String date, String rating, String popular) {
+//        mDbHelper.insertDB(img,title,overview,date, rating, popular);
+//    }
 
-    @Override
-    public int searchData(String title) {
-        return mDbHelper.searchData(title);
-    }
+//    @Override
+//    public int searchData(String title) {
+//        return mDbHelper.searchData(title);
+//    }
+//
+//    @Override
+//    public Observable<List<Result>> getDataFavorite() {
+//        return mDbHelper.getDataFavorite();
+//    }
 
-    @Override
-    public Observable<List<Result>> getDataFavorite() {
-        return mDbHelper.getDataFavorite();
-    }
-
-    @Override
-    public void deletedFavorite(String title) {
-        mDbHelper.deletedFavorite(title);
-    }
+//    @Override
+//    public void deletedFavorite(String title) {
+//        mDbHelper.deletedFavorite(title);
+//    }
 
     @Override
     public Cursor queryProvider() {
@@ -109,14 +111,18 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public long insertProvider(ContentValues contentValues) {
-        return mDbHelper.insertProvider(contentValues);
+    public int deleteProviders(String lastPathSegment) {
+        return mDbHelper.deleteProviders(lastPathSegment);
     }
 
     @Override
-    public int deleteProvider(String lastPathSegment) {
-        return mDbHelper.deleteProvider(lastPathSegment);
+    public long insertProviders(ContentValues contentValues) {
+        return mDbHelper.insertProviders(contentValues);
     }
 
+    @Override
+    public int updateProvider(String lastPathSegment, ContentValues contentValues) {
+        return mDbHelper.updateProvider(lastPathSegment,contentValues);
+    }
 
 }

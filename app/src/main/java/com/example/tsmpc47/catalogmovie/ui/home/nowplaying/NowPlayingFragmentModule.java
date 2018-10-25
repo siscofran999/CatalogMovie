@@ -28,8 +28,8 @@ public class NowPlayingFragmentModule {
     }
 
     @Provides
-    NowPlayingAdapter provideNowPlayingAdapter(){
-        return new NowPlayingAdapter(new ArrayList<Result>());
+    NowPlayingAdapter provideNowPlayingAdapter(NowPlayingFragment fragment){
+        return new NowPlayingAdapter(new ArrayList<Result>(),fragment.getActivity());
     }
 
     @Provides

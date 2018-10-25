@@ -6,13 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
-    <permission
-        android:name="com.example.tsmpc47.catalogmovie.READ_DATABASE"
-        android:protectionLevel="normal" />
-    <permission
-        android:name="com.example.tsmpc47.catalogmovie.WRITE_DATABASE"
-        android:protectionLevel="normal" />
+    <permission android:name="com.example.tsmpc47.catalogmovie.READ_DATABASE" android:protectionLevel="normal"/>
+    <permission android:name="com.example.tsmpc47.catalogmovie.WRITE_DATABASE" android:protectionLevel="normal"/>
 
     <application
         android:name=".CatalogMovie"
@@ -36,7 +31,7 @@
             android:theme="@style/AppNoTheme" />
 
         <provider
-            android:name="data.provider.FavoriteProvider"
+            android:name=".data.provider.FavoriteProvider"
             android:authorities="com.example.tsmpc47.catalogmovie"
             android:exported="true"
             android:readPermission="com.example.tsmpc47.catalogmovie.READ_DATABASE"

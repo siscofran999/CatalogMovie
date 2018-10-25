@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -9,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingViewModel" />
+            type="com.example.favorite.ui.main.MainViewModel" />
     </data>
 
     <FrameLayout
@@ -17,10 +16,9 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvnowplaying"
+            android:id="@+id/rvmain"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:adapterNow="@{viewModel.NowItemViewModels}"/>
+            android:layout_height="match_parent" />
 
         <android.support.v4.widget.ContentLoadingProgressBar
             android:id="@+id/address_looking_up"
@@ -28,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            tools:listitem="@layout/item_now_playing"
+            tools:listitem="@layout/item_main"
             android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"/>
 
     </FrameLayout>

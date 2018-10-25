@@ -1,4 +1,4 @@
-package com.example.tsmpc47.catalogmovie.data.db;
+package com.example.favorite.data.db;
 
 import android.database.Cursor;
 import android.net.Uri;
@@ -19,10 +19,6 @@ public class DatabaseContract {
         return cursor.getString( cursor.getColumnIndex(columnName) );
     }
 
-    public static int getColumnInt(Cursor cursor, String columnName) {
-        return cursor.getInt(cursor.getColumnIndex(columnName));
-    }
-
     public static final class MovieColumnsFavorite implements BaseColumns {
 
         public static String gambar = "gambar";
@@ -37,7 +33,6 @@ public class DatabaseContract {
 
         public static String popular = "popular";
 
-        public static String fovorite = "favorite";
-
     }
+
 }

@@ -2,6 +2,7 @@ package com.example.tsmpc47.catalogmovie.ui.search;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import com.example.tsmpc47.catalogmovie.ui.base.BaseViewHolder;
 import com.example.tsmpc47.catalogmovie.ui.detail.DetailMovieActivity;
 
 import java.util.List;
+
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.CONTENT_URI;
 
 public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
@@ -69,6 +72,8 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public void clickMovieDetailActivity(Result result) {
             Context context = mBinding.getRoot().getContext();
             Intent intent = DetailMovieActivity.gotoDetailMovieActivity(context,result);
+            Uri uri = Uri.parse(CONTENT_URI + "/" + result.getId());
+            intent.setData(uri);
             context.startActivity(intent);
         }
     }

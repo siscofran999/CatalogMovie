@@ -1,6 +1,7 @@
 package com.example.tsmpc47.catalogmovie.ui.home.favorite;
 
 import android.arch.lifecycle.ViewModelProvider;
+import android.database.Cursor;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.example.tsmpc47.catalogmovie.ViewModelProviderFactory;
@@ -23,8 +24,8 @@ public class FavoriteFragmentModule {
     }
 
     @Provides
-    FavoriteAdapter provideFavoriteAdapter(){
-        return new FavoriteAdapter(new ArrayList<Result>());
+    FavoriteAdapter provideFavoriteAdapter(FavoriteFragment fragment, DataManager dataManager, SchedulerProvider schedulerProvider){
+        return new FavoriteAdapter(fragment,dataManager,schedulerProvider);
     }
 
     @Provides

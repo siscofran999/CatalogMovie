@@ -30,6 +30,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.example.favorite.ui.main.MainActivity;
 import com.example.favorite.utils.CommonUtils;
 import com.example.favorite.utils.NetworkUtils;
 

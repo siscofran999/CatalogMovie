@@ -69,14 +69,14 @@ public final class BindingUtils {
         rating.setRating(Float.parseFloat(value));
     }
 
-    @BindingAdapter({"adapterFav"})
-    public static void addFavoriteItems(RecyclerView recyclerView,
-                                          ArrayList<Result> mainItem) {
-        FavoriteAdapter adapter = (FavoriteAdapter) recyclerView.getAdapter();
-        if(adapter != null) {
-            adapter.clearItems();
-            adapter.addItems(mainItem);
-        }
-    }
+//    @BindingAdapter({"adapterFav"})
+//    public static void addFavoriteItems(RecyclerView recyclerView,
+//                                          ArrayList<Result> mainItem) {
+//        FavoriteAdapter adapter = (FavoriteAdapter) recyclerView.getAdapter();
+//        if(adapter != null) {
+//            adapter.clearItems();
+//            adapter.addItems(mainItem);
+//        }
+//    }
 
 }

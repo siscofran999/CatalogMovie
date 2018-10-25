@@ -1,13 +1,26 @@
 package com.example.tsmpc47.catalogmovie.data.model;
 
+import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.example.tsmpc47.catalogmovie.data.db.DbHelper;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.provider.MediaStore.Audio.Playlists.Members._ID;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.bintang;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.deskripsi;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.fovorite;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.gambar;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.judul;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.popular;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.MovieColumnsFavorite.tgl;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.getColumnInt;
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.getColumnString;
 
 public class Result implements Parcelable{
 
@@ -53,6 +66,8 @@ public class Result implements Parcelable{
     @SerializedName("release_date")
     @Expose
     private String releaseDate;
+
+    private boolean isFavourite;
 
     public static final Creator<Result> CREATOR = new Creator<Result>() {
         @Override
@@ -178,11 +193,16 @@ public class Result implements Parcelable{
         this.releaseDate = releaseDate;
     }
 
+    public boolean isFavourite() {
+        return isFavourite;
+    }
+
     public Result(){
 
     }
 
     public Result(Parcel source){
+        id = source.readInt();
         title = source.readString();
         overview = source.readString();
         posterPath = source.readString();
@@ -198,6 +218,7 @@ public class Result implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(title);
         dest.writeString(overview);
         dest.writeString(posterPath);
@@ -206,5 +227,14 @@ public class Result implements Parcelable{
         dest.writeDouble(voteAverage);
     }
 
-
+    public Result(Cursor cursor){
+        id = getColumnInt(cursor, _ID);
+        posterPath = getColumnString(cursor, gambar);
+        title = getColumnString(cursor, judul);
+        overview = getColumnString(cursor, deskripsi);
+        releaseDate = getColumnString(cursor, tgl);
+        voteAverage = Double.valueOf(getColumnString(cursor, bintang));
+        popularity = Double.valueOf(getColumnString(cursor,popular));
+        isFavourite = Boolean.parseBoolean(getColumnString(cursor, fovorite));
+    }
 }

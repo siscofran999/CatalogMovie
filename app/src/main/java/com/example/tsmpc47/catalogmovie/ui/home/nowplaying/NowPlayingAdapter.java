@@ -1,7 +1,9 @@
 package com.example.tsmpc47.catalogmovie.ui.home.nowplaying;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,13 +17,17 @@ import com.example.tsmpc47.catalogmovie.ui.detail.DetailMovieActivity;
 
 import java.util.List;
 
+import static com.example.tsmpc47.catalogmovie.data.db.DatabaseContract.CONTENT_URI;
+
 public class NowPlayingAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private static final String TAG = "NowPlayingAdapter";
     private List<Result> mNowPlayingList;
+    private final Activity mActivity;
 
-    public NowPlayingAdapter(List<Result> nowPlayingList){
+    public NowPlayingAdapter(List<Result> nowPlayingList, Activity activity){
         this.mNowPlayingList = nowPlayingList;
+        this.mActivity = activity;
     }
 
     @NonNull
@@ -77,7 +83,9 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             Log.i(TAG, "clickMovieDetailActivity: "+result.getPopularity());
             Context context = mBinding.getRoot().getContext();
             Intent intent = DetailMovieActivity.gotoDetailMovieActivity(context,result);
-            context.startActivity(intent);
+            Uri uri = Uri.parse(CONTENT_URI + "/" + result.getId());
+            intent.setData(uri);
+            mActivity.startActivityForResult(intent,DetailMovieActivity.REQUEST_UPDATE);
         }
 
         @Override
