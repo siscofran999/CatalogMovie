@@ -19,6 +19,10 @@ public class DatabaseContract {
         return cursor.getString( cursor.getColumnIndex(columnName) );
     }
 
+    public static int getColumnInt(Cursor cursor, String columnName) {
+        return cursor.getInt(cursor.getColumnIndex(columnName));
+    }
+
     public static final class MovieColumnsFavorite implements BaseColumns {
 
         public static String gambar = "gambar";
@@ -32,6 +36,8 @@ public class DatabaseContract {
         public static String bintang = "bintang";
 
         public static String popular = "popular";
+
+        public static String fovorite = "favorite";
 
     }
 

@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.example.favorite.ViewModelProviderFactory;
+import com.example.favorite.data.DataManager;
 import com.example.favorite.utils.rx.SchedulerProvider;
 
 import dagger.Module;
@@ -13,8 +14,13 @@ import dagger.Provides;
 public class MainActivityModule {
 
     @Provides
-    MainViewModel provideMainViewModel(SchedulerProvider schedulerProvider) {
-        return new MainViewModel(schedulerProvider);
+    MainViewModel provideMainViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        return new MainViewModel(dataManager, schedulerProvider);
+    }
+
+    @Provides
+    MainAdapter provideMainAdapter(MainActivity activity, DataManager dataManager, SchedulerProvider schedulerProvider){
+        return new MainAdapter(activity,dataManager,schedulerProvider);
     }
 
     @Provides

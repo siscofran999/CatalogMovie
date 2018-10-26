@@ -19,6 +19,7 @@ package com.example.favorite.ui.base;
 import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableBoolean;
 
+import com.example.favorite.data.DataManager;
 import com.example.favorite.utils.rx.SchedulerProvider;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -34,8 +35,10 @@ public abstract class BaseViewModel<N> extends ViewModel {
     private final ObservableBoolean mIsLoading = new ObservableBoolean(false);
 
     private CompositeDisposable mCompositeDisposable;
+    private DataManager mDataManager;
 
-    public BaseViewModel(SchedulerProvider schedulerProvider) {
+    public BaseViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        this.mDataManager = dataManager;
         this.mSchedulerProvider = schedulerProvider;
         this.mCompositeDisposable = new CompositeDisposable();
     }
@@ -46,6 +49,10 @@ public abstract class BaseViewModel<N> extends ViewModel {
 
     public N getNavigator() {
         return mNavigator;
+    }
+
+    public DataManager getDataManager() {
+        return mDataManager;
     }
 
     public SchedulerProvider getSchedulerProvider() {

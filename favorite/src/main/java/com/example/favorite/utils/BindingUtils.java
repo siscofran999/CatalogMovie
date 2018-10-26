@@ -13,16 +13,6 @@ import java.util.ArrayList;
 
 public final class BindingUtils {
 
-//    @BindingAdapter({"adapter"})
-//    public static void addMainItems(RecyclerView recyclerView,
-//                                    ArrayList<Result> mainItem) {
-//        MainAdapter adapter = (MainAdapter) recyclerView.getAdapter();
-//        if(adapter != null) {
-//            adapter.clearItems();
-//            adapter.addItems(mainItem);
-//        }
-//    }
-
     @BindingAdapter("imageUrl")
     public static void setImageUrl(ImageView imageView, String url) {
         Context context = imageView.getContext();

@@ -92,15 +92,6 @@
                 android:layout_toEndOf="@+id/imageUrl">
 
                 <Button
-                    android:id="@+id/detailnow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorPrimary"
-                    android:onClick="@{() -> viewModel.detail()}"
-                    android:text="detail"
-                    android:textColor="@color/colorAccent" />
-
-                <Button
                     android:id="@+id/sharenow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

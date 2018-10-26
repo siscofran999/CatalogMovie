@@ -2,13 +2,16 @@ package com.example.favorite.data.db;
 
 import android.content.Context;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+@Singleton
 public class AppDbHelper implements DbHelper {
 
     private final Context mContext;
-    private DatabaseHelper mDatabaseHelper;
 
-    public AppDbHelper(Context mContext, DatabaseHelper mDatabaseHelper) {
+    @Inject
+    public AppDbHelper(Context mContext) {
         this.mContext = mContext;
-        this.mDatabaseHelper = mDatabaseHelper;
     }
 }
