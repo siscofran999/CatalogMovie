@@ -3,9 +3,12 @@ package com.example.tsmpc47.catalogmovie.ui.home.nowplaying;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
@@ -43,6 +46,8 @@ public class NowPlayingFragment extends BaseFragment<FragmentNowPlayingBinding, 
     private NowPlayingViewModel mNowPlayingViewModel;
     FragmentNowPlayingBinding mFragmentNowPlayingBinding;
 
+    public static final int NOTIFICAITION_ID = 1;
+
     public static NowPlayingFragment newInstance() {
         Bundle args = new Bundle();
         NowPlayingFragment fragment = new NowPlayingFragment();
@@ -57,6 +62,26 @@ public class NowPlayingFragment extends BaseFragment<FragmentNowPlayingBinding, 
         mFragmentNowPlayingBinding = getViewDataBinding();
         setUp();
         subscribeToLiveData();
+
+        showNotification();
+    }
+
+    private void showNotification() {
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(getContext())
+                .setSmallIcon(R.drawable.ic_notifications_white_24dp)
+                .setLargeIcon(BitmapFactory
+                        .decodeResource(getResources()
+                                , R.drawable.ic_notifications_white_24dp))
+                .setContentTitle(getResources()
+                        .getString(R.string.content_title))
+                .setContentText(getResources()
+                        .getString(R.string.content_text))
+                .setSubText(getResources()
+                        .getString(R.string.subtext))
+                .setAutoCancel(true);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(Objects.requireNonNull(getContext()));
+        notificationManagerCompat.notify(NOTIFICAITION_ID, notification.build());
     }
 
     private void subscribeToLiveData() {

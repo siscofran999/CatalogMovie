@@ -19,6 +19,7 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
             buildConfigField("String", "API_KEY", "\"bdadf5ed74237b6549de22c90ba5d4f7\"")
             buildConfigField("String", "POSTER", "\"http://image.tmdb.org/t/p/w185\"")
+            buildConfigField("String", "POSTER_WIDGET", "\"http://image.tmdb.org/t/p/original\"")
         }
         release {
             minifyEnabled false
@@ -26,6 +27,7 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
             buildConfigField("String", "API_KEY", "\"bdadf5ed74237b6549de22c90ba5d4f7\"")
             buildConfigField("String", "POSTER", "\"http://image.tmdb.org/t/p/w185\"")
+            buildConfigField("String", "POSTER_WIDGET", "\"http://image.tmdb.org/t/p/original\"")
         }
     }
     dataBinding {
@@ -98,4 +100,7 @@ dependencies {
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.lifecycle"
 
     implementation "com.miguelcatalan:materialsearchview:$rootProject.searchview"
+
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'com.google.android.gms:play-services-gcm:10.2.1'
 }

@@ -51,12 +51,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     }
 
     private void subscribeToLiveData() {
-        mMainViewModel.getMainItemLiveData().observe(this, new Observer<List<Result>>() {
-            @Override
-            public void onChanged(@Nullable List<Result> results) {
-                mMainViewModel.addMainItemsToList(results);
-            }
-        });
+        mMainViewModel.getMainItemLiveData().observe(this, results ->
+                mMainViewModel.addMainItemsToList(results));
     }
 
     private void setUp() {

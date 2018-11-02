@@ -21,6 +21,7 @@ import com.example.tsmpc47.catalogmovie.ui.home.favorite.FavoriteFragment;
 import com.example.tsmpc47.catalogmovie.ui.home.nowplaying.NowPlayingFragment;
 import com.example.tsmpc47.catalogmovie.ui.home.upcoming.UpComingFragment;
 import com.example.tsmpc47.catalogmovie.ui.search.SearchActivity;
+import com.example.tsmpc47.catalogmovie.ui.setting.SettingActivity;
 
 import javax.inject.Inject;
 
@@ -94,6 +95,9 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeViewMode
             startActivity(mIntent);
         }else if(item.getItemId() == R.id.search){
             startActivity(SearchActivity.gotoSearchActivity(this));
+        }else if (item.getItemId() == R.id.menu2){
+            Intent intent = new Intent(this, SettingActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

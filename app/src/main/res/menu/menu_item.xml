@@ -9,5 +9,7 @@
     <group android:menuCategory="container">
         <item android:id="@+id/menu1"
             android:title="@string/ganti_bahasa" />
+        <item android:id="@+id/menu2"
+            android:title="@string/setting" />
     </group>
 </menu>

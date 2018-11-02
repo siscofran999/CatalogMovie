@@ -126,7 +126,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
             super.onPostExecute(notes);
 
             listFavorite = notes;
-            Log.i(TAG, "onPostExecute: "+notes.getCount());
+            //Log.i(TAG, "onPostExecute: "+notes.getCount());
             mMainAdapter.setListMain(listFavorite);
             mMainAdapter.notifyDataSetChanged();
 
